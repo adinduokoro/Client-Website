@@ -1,6 +1,7 @@
 import React from "react";
 import logo from "../../images/logo.png";
 import { navs } from "./data";
+import { Icon } from "@iconify/react";
 
 const NavbarBottom = () => {
   return (
@@ -12,7 +13,7 @@ const NavbarBottom = () => {
 
       {/* Website Navigation Menu */}
       <div className="navbarBottom__navMenu">
-        <ul className="navbarBottom__navList grid">
+        <ul className="navbarBottom__navList">
           {navs.map((nav, index) => {
             return (
               <li className="navbarBottom__navItem" key={index}>
@@ -21,7 +22,16 @@ const NavbarBottom = () => {
             );
           })}
         </ul>
-        <div></div>
+
+        {/* Book Now Button */}
+        <a href="" className="navbarBottom__button button">
+          Book Now
+        </a>
+      </div>
+
+      {/* Navigation Controls */}
+      <div className="navbarBottom__menuIcon">
+        <Icon icon="mingcute:menu-fill" />
       </div>
     </div>
   );
