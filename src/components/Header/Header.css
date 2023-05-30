@@ -1,0 +1,60 @@
+.header{
+  width: 100%;
+  position: fixed;
+  top: 0;
+  left: 0;
+  background-color: var(--bg-color);
+  z-index: var(--z-fixed);
+  border-bottom: 5px solid var(--main-color);
+}
+
+.navbarTop{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 1.75rem;
+  margin: 0 var(--m-0-5);
+}
+
+.navbarTop__contact{
+  display: flex;
+  gap: 1rem;
+  font-size: var(--smaller-font-size);
+  font-weight: var(--font-light);
+  align-items: center;
+}
+
+.navbarTop__social{
+  display: flex;
+  align-items: center;
+  font-size: var(--normal-font-size);
+  gap: .25rem;
+}
+
+.navbarBottom{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 5.25rem;
+  margin: 0 var(--m-2);
+}
+
+.navbarBottom__logo{
+  width: 4rem;
+  display: flex;
+}
+
+.navbarBottom__navMenu{
+  display: flex;
+}
+
+.navbarBottom__navList{
+  display: flex;
+  grid-template-columns: repeat(5, auto);
+}
+
+.navbarBottom__navItem{
+  font-size: var(--h3-font-size);
+  font-weight: var(--font-semi-bold);
+}
+

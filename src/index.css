@@ -1,13 +1,110 @@
-body {
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+:root {
+  --header-height: 7rem;
+
+  /* COLORS */
+  --main-color: #429bce;
+  --second-main-color: #002d4e;
+  --bg-color: #000;
+  --second-bg-color: #545454;
+  --text-color: #f0edee;
+  --second-text-color: #000;
+
+  /* FONT */
+  --body-font: "Kanit", san-serif;
+
+  /* .5rem = 8px | 1rem = 16px */
+  --big-font-size: 3.5rem;
+  --h1-font-size: 2.25rem;
+  --h2-font-size: 1.5rem;
+  --h3-font-size: 1.25rem;
+  --normal-font-size: 1rem;
+  --small-font-size: 0.875rem;
+  --smaller-font-size: 0.813rem;
+  --tiny-font-size: 0.625rem;
+
+  /* FONT WEIGHT */
+  --font-light: 300;
+  --font-normal: 400;
+  --font-medium: 500;
+  --font-semi-bold: 600;
+
+  /* MARGIN BOTTOM */
+  --m-0-5: 0.5rem;
+  --m-1: 1rem;
+  --m-2: 2rem;
+
+
+  /* Z INDEX */
+  --z-tooltip: 10;
+  --z-fixed: 100;
+  --z-modal: 200;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+/* RESPONSIVE TYPO */
+@media screen and (max-width: 992px) {
+  :root {
+    --big-font-size: 2.75rem;
+    --h1-font-size: 1.5rem;
+    --h2-font-size: 1.25rem;
+    --h3-font-size: 1rem;
+    --normal-font-size: 0.938rem;
+    --small-font-size: 0.813rem;
+    --smaller-font-size: 0.75rem;
+  }
+}
+
+/* BASE */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+  min-width: 320px;
+}
+
+body,
+input,
+button,
+textarea {
+  font-size: var(--normal-font-size);
+  font-family: var(--body-font);
+}
+
+body {
+  color: var(--text-color);
+}
+
+ul {
+  list-style: none;
+}
+
+a {
+  text-decoration: none;
+  color: var(--text-color);
+}
+
+button {
+  cursor: pointer;
+  outline: none;
+  border: none;
+}
+
+img {
+  height: auto;
+  max-width: 100%;
+}
+
+/* LAYOUT */
+.container {
+  max-width: 968px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.grid{
+  display: grid;
+  gap: 1.5rem;
 }
