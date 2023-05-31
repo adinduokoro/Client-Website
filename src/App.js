@@ -1,43 +1,15 @@
-import React, { useState } from "react";
+import React from "react";
 import Header from "../src/components/Header/Header"
+import Hero from "./components/Hero/Hero";
+
 
 function App() {
 
+
   return (
-    <div className="App" >
+    <div className="App">
       <Header />
-      <div>working</div>
-      <div>working</div>
-      <div>working</div>
-      <div>working</div>
-      <div>working</div>
-      <div>working</div>
-      <div>working</div>
-      <div>working</div>
-      <div>working</div>
-      <div>working</div>
-      <div>working</div>
-      <div>working</div>
-      <div>working</div>
-      <div>working</div>
-      <div>working</div>
-      <div>working</div>
-      <div>working</div>
-      <div>working</div>
-      <div>working</div>
-      <div>working</div>
-      <div>working</div>
-      <div>working</div>
-      <div>working</div>
-      <div>working</div>
-      <div>working</div>
-      <div>working</div>
-      <div>working</div>
-      <div>working</div>
-      <div>working</div>
-      <div>working</div>
-      <div>working</div>
-      <div>working</div>v
+      <Hero />
     </div>
   );
 }

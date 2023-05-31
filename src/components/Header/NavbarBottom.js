@@ -2,21 +2,20 @@ import React from "react";
 import logo from "../../images/logo.png";
 import { navs } from "./data";
 import { Icon } from "@iconify/react";
-import { useSelector, useDispatch } from "react-redux"
+import { useSelector, useDispatch } from "react-redux";
 import { toggleSwitch, closeMenu } from "../../features/toggle/toggleSlice";
 
 const NavbarBottom = () => {
-  const toggle = useSelector((store) => store.plug.value)
-  const dispatch = useDispatch()
+  const toggle = useSelector((store) => store.plug.value);
+  const dispatch = useDispatch();
 
   const handleClick = () => {
-    dispatch(toggleSwitch())
-    console.log(toggle)
-  }
+    dispatch(toggleSwitch());
+  };
 
   const handleMenuClose = () => {
-    dispatch(closeMenu())
-  }
+    dispatch(closeMenu());
+  };
 
   return (
     <div className="navbarBottom">
@@ -26,12 +25,18 @@ const NavbarBottom = () => {
       </div>
 
       {/* Website Navigation Menu */}
-      <div className={toggle ? "navbarBottom__navMenu active" : "navbarBottom__navMenu"}>
+      <div
+        className={
+          toggle ? "navbarBottom__navMenu active" : "navbarBottom__navMenu"
+        }
+      >
         <ul className="navbarBottom__navList">
           {navs.map((nav, index) => {
             return (
               <li className="navbarBottom__navItem" key={index}>
-                <a onClick={handleMenuClose} href={nav.path}>{nav.text}</a>
+                <a onClick={handleMenuClose} href={nav.path}>
+                  {nav.text}
+                </a>
               </li>
             );
           })}

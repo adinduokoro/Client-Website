@@ -5,7 +5,7 @@
   left: 0;
   background-color: var(--bg-color);
   z-index: var(--z-fixed);
-  border-bottom: 0.5rem solid var(--main-color);
+  border-bottom: .5rem solid var(--main-color);
 }
 
 .navbarTop {
@@ -67,6 +67,7 @@
 
 .navbarBottom__menuIcon {
   display: none;
+  cursor: pointer;
 }
 
 /* BREAKPOINTS */
