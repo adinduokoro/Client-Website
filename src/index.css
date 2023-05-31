@@ -35,10 +35,9 @@
 
 
   /* Z INDEX */
-  --z-tooltip: 10;
-  --z-menu: 25;
+  --z-modal: 25;
   --z-fixed: 50;
-  --z-modal: 100;
+  --z-nav: 200;
 }
 
 /* RESPONSIVE TYPO */

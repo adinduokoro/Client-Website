@@ -4,7 +4,7 @@
   top: 0;
   left: 0;
   background-color: var(--bg-color);
-  z-index: var(--z-fixed);
+  z-index: var(--z-nav);
   border-bottom: .5rem solid var(--main-color);
 }
 
