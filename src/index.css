@@ -98,6 +98,14 @@ img {
   max-width: 100%;
 }
 
+.section__title{
+  font-size: var(--h1-font-size);
+}
+
+.section__subtitle{
+  font-size: var(--h3-font-size);
+}
+
 /* LAYOUT */
 .container {
   max-width: 968px;
@@ -129,7 +137,7 @@ img {
 
 /* FOR TABLET DEVICE */
 @media screen and (max-width: 576px) {
-  
+
 }
 
 /* FOR SMALL DEVICE */
