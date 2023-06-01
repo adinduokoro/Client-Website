@@ -107,7 +107,8 @@ img {
 }
 
 /* LAYOUT */
-.container {
+.container,
+.containerMain {
   max-width: 968px;
   margin-left: auto;
   margin-right: auto;
@@ -137,7 +138,11 @@ img {
 
 /* FOR TABLET DEVICE */
 @media screen and (max-width: 576px) {
+  .containerMain {
 
+    width: 80%;
+
+  }
 }
 
 /* FOR SMALL DEVICE */
