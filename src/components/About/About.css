@@ -1,0 +1,49 @@
+.about {
+  min-height: calc(100vh - var(--header-height));
+  background-color: var(--bg-color);
+  display: flex;
+  align-items: center;
+  border: 2px solid green;
+
+}
+
+.about__container {
+  border: 2px solid green;
+  position: relative;
+  min-height: 65vh;
+  width: 75%;
+  margin: 4rem 0;
+  display: flex;
+  justify-content: center;
+
+}
+
+.about__container img{
+  object-fit: cover;
+  opacity: .45;
+}
+
+/* FOR LARGE DEVICE */
+@media screen and (max-width: 992px) {
+
+}
+
+/* FOR MEDIUM DEVICE */
+@media screen and (max-width: 768px) {
+
+}
+
+/* FOR TABLET DEVICE */
+@media screen and (max-width: 576px) {
+  
+}
+
+/* FOR SMALL DEVICE */
+@media screen and (max-width: 350px) {
+
+
+}
+
+
+
+
