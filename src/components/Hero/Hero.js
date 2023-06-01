@@ -6,8 +6,8 @@ import logo from "../../images/logo.png";
 
 const Hero = () => {
   return (
-    <section className="hero">
-      <div className="hero__img">
+    <section className="hero" id="home" style={{scrollMarginTop: "7.5rem"}} >
+      <div className="hero__img" >
         <img src={heroPic} alt="hero__img" />
       </div>
       <div className="hero__overlay"></div>

@@ -4,7 +4,6 @@
   display: flex;
   align-items: center;
   border: 2px solid green;
-
 }
 
 .about__container {
@@ -15,35 +14,37 @@
   margin: 4rem 0;
   display: flex;
   justify-content: center;
-
 }
 
-.about__container img{
+.about__container img {
   object-fit: cover;
-  opacity: .45;
+  opacity: 0.45;
+}
+
+.about__overlay {
+  position: absolute;
+  z-index: var(--z-modal);
+  background-color: var(--bg-color);
+  top: 0;
+  right: 0;
+  height: 100%;
+  width: 50%;
+  opacity: .65;
+
 }
 
 /* FOR LARGE DEVICE */
 @media screen and (max-width: 992px) {
-
 }
 
 /* FOR MEDIUM DEVICE */
 @media screen and (max-width: 768px) {
-
 }
 
 /* FOR TABLET DEVICE */
 @media screen and (max-width: 576px) {
-  
 }
 
 /* FOR SMALL DEVICE */
 @media screen and (max-width: 350px) {
-
-
 }
-
-
-
-
