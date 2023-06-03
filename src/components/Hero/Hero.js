@@ -13,9 +13,9 @@ const Hero = () => {
       <div className="hero__overlay"></div>
       <div className="hero__info">
         <img src={logo} alt="" />
-        <h1>WASHINGTON'S DIRECT</h1>
+        <h1 className="section__title">WASHINGTON'S DIRECT</h1>
         <h2>FIREARMS TRAINING</h2>
-        <h3>Qualified Instructors Teaching Safety and Defense Skills</h3>
+        <h3 className="section__subtitle">Qualified Instructors Teaching Safety and Defense Skills</h3>
         <a href="" className="hero__button button">
           Book Now
         </a>

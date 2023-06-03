@@ -2,6 +2,7 @@ import React from "react";
 import Header from "../src/components/Header/Header"
 import Hero from "./components/Hero/Hero";
 import About from "./components/About/About";
+import Offer from "./components/Offer/Offer";
 
 function App() {
 
@@ -11,7 +12,8 @@ function App() {
       <Header />
       <Hero />
       <About />
-      hello
+      <Offer />
+
     </div>
   );
 }

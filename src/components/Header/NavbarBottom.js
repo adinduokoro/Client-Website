@@ -18,7 +18,7 @@ const NavbarBottom = () => {
   };
 
   return (
-    <div className="navbarBottom">
+    <nav className="navbarBottom">
       {/* Website Logo */}
       <div className="navbarBottom__logo">
         <img src={logo} alt="logo" />
@@ -52,7 +52,7 @@ const NavbarBottom = () => {
       <div className="navbarBottom__menuIcon" onClick={handleClick}>
         <Icon icon={toggle ? "mingcute:close-fill" : "mingcute:menu-fill"} />
       </div>
-    </div>
+    </nav>
   );
 };
 

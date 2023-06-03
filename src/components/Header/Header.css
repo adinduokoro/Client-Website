@@ -18,7 +18,7 @@
 
 .navbarTop__contact {
   display: flex;
-  gap: 1rem;
+  gap: .5rem;
   font-size: var(--smaller-font-size);
   font-weight: var(--font-light);
   align-items: center;

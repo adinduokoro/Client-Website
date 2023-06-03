@@ -3,7 +3,7 @@ import { Icon } from "@iconify/react";
 
 const NavbarTop = () => {
   return (
-    <div className="navbarTop">
+    <nav className="navbarTop">
 
       {/* Website Main Contact Links */}
       <div className="navbarTop__contact">
@@ -30,7 +30,7 @@ const NavbarTop = () => {
           <Icon icon="uil:facebook" />{" "}
         </a>
       </div>
-    </div>
+    </nav>
   );
 };
 

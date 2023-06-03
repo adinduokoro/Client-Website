@@ -8,8 +8,6 @@
 .about__container {
   position: relative;
   min-height: 65vh;
-  width: 75%;
-  margin: 4rem 0;
   display: flex;
   justify-content: center;
 }
@@ -27,10 +25,10 @@
   right: 0;
   height: 100%;
   width: 50%;
-  opacity: .55;
+  opacity: 0.55;
 }
 
-.about__text{
+.about__text {
   position: absolute;
   z-index: var(--z-fixed);
   top: 0;
@@ -45,15 +43,13 @@
   padding: 0 1rem;
 }
 
-.about__text span{
+.about__text span {
   color: var(--main-color);
 }
 
-
-.about__text p{
+.about__text p {
   font-weight: var(--font-light);
 }
-
 
 /* FOR LARGE DEVICE */
 @media screen and (max-width: 992px) {
@@ -62,39 +58,26 @@
 /* FOR MEDIUM DEVICE */
 @media screen and (max-width: 768px) {
   .about__overlay {
-    
     width: 65%;
-
   }
 
-  .about__text{
-
+  .about__text {
     width: 65%;
-
   }
 }
 
 /* FOR TABLET DEVICE */
 @media screen and (max-width: 576px) {
-
   .about__overlay {
-    
     width: 100%;
-
   }
 
-  .about__text{
-
+  .about__text {
     width: 100%;
-    padding: 0 .5rem;
-
+    padding: 0 0.5rem;
   }
-
 }
 
 /* FOR SMALL DEVICE */
 @media screen and (max-width: 350px) {
-
-
-
 }
