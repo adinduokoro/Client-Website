@@ -1,7 +1,7 @@
 import React from "react";
 import "./Hero.css";
-import heroPic from "../../images/hero-pic.jpg";
-import logo from "../../images/logo.png";
+import heroPic from "../../assets/images/hero-pic.jpg";
+import logo from "../../assets/images/logo.png";
 
 
 const Hero = () => {

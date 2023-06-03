@@ -1,5 +1,5 @@
 import React from "react";
-import logo from "../../images/logo.png";
+import logo from "../../assets/images/logo.png";
 import { navs } from "./data";
 import { Icon } from "@iconify/react";
 import { useSelector, useDispatch } from "react-redux";
