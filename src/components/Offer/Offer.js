@@ -12,7 +12,14 @@ const Offer = () => {
           {services.map((service, index) => {
             return (
               <div className="offerCard" key={index}>
+                <div className="offerCard__img">
+                  <img src={service.img} alt="" />
+                </div>
+                <div className="offerCard__overlay"></div>
+                <div className="text">
                 {service.text}
+
+                </div>
               </div>
             );
           })}
