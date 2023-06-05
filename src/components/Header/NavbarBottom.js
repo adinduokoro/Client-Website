@@ -12,7 +12,7 @@ const NavbarBottom = () => {
   const handleClick = () => {
     dispatch(toggleSwitch());
   };
-
+  
   const handleMenuClose = () => {
     dispatch(closeMenu());
   };
