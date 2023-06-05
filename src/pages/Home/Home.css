@@ -1,12 +1,21 @@
-.home{
-  position: relative;
-}
-
 .home__overlay{
   position: fixed;
   width: 100%;
-  height: 100%;
-  background-color: orange;
-  z-index: 500;
+  min-height: calc(100vh - var(--header-height));
+  z-index: 200;
+  background-color: aqua;
   opacity: .2;
 }
+
+.popup__container{
+  position: fixed;
+  z-index: 300;
+  top: 55%;
+  left: 50%;
+  width: 80%;
+  height: 65%;
+  transform: translate(-50%, -50%);
+  border: 5px solid pink;
+  transition: .3s ease-in-out;
+}
+
