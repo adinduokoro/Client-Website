@@ -1,21 +1,101 @@
-.home__overlay{
+.home__overlay {
   position: fixed;
   width: 100%;
-  min-height: calc(100vh - var(--header-height));
-  z-index: 200;
-  background-color: aqua;
-  opacity: .2;
+  min-height: calc(100% - var(--header-height));
+  z-index: 100;
+  background-color: var(--main-color);
+  opacity: 0.2;
+  display: none;
 }
 
-.popup__container{
+.home__overlay.show {
+  display: block;
+}
+
+.popup__container {
+  margin: var(--header-height) 0;
   position: fixed;
-  z-index: 300;
-  top: 55%;
+  z-index: 100;
+  top: 45%;
   left: 50%;
-  width: 80%;
-  height: 65%;
+  width: 75%;
+  height: 70%;
   transform: translate(-50%, -50%);
-  border: 5px solid pink;
-  transition: .3s ease-in-out;
+  border: 5px solid var(--main-color);
+  transition: 0.3s ease-in-out;
+  background-color: black;
+  display: flex;
 }
 
+.popup__container.show{
+  
+}
+
+.popup__left {
+  position: relative;
+  width: 50%;
+}
+
+.popup__left img {
+  height: 100%;
+  width: 100%;
+  object-fit: cover;
+  opacity: 0.25;
+}
+
+.popup__course {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  padding: 1rem;
+}
+
+.popup__right {
+  width: 100%;
+  padding: 1rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.popup__button {
+  display: inline-flex;
+  justify-content: end;
+}
+
+/* BREAKPOINTS */
+/* FOR LARGE DEVICE */
+@media screen and (max-width: 992px) {
+}
+
+/* FOR MEDIUM DEVICE */
+@media screen and (max-width: 768px) {
+}
+
+/* FOR TABLET DEVICE */
+@media screen and (max-width: 576px) {
+  .popup__container {
+    flex-direction: column;
+  }
+
+  .popup__left {
+    width: auto;
+    height: 20%;
+  }
+
+  .popup__course {
+    padding: 0.5rem;
+  }
+
+  .popup__right {
+    width: auto;
+    height: 100%;
+    padding: 0.5rem;
+  }
+}
+
+/* FOR SMALL DEVICE */
+@media screen and (max-width: 350px) {
+}

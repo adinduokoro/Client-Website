@@ -1,7 +1,7 @@
 import React from "react";
 import "./Offer.css";
 import Card from "./Card";
-import {services} from "./data.js"
+import { services } from "./data.js";
 
 const Offer = () => {
   return (
