@@ -73,6 +73,7 @@ button,
 textarea {
   font-size: var(--normal-font-size);
   font-family: var(--body-font);
+  
 }
 
 body {
