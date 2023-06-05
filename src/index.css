@@ -131,7 +131,6 @@ section{
   border-radius: 3rem;
   font-size: var(--h3-font-size);
   font-weight: var(--font-semi-bold);
-  display: inline-block;
 }
 
 /* BREAKPOINTS */
