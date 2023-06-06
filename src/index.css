@@ -147,12 +147,12 @@ section{
 /* FOR TABLET DEVICE */
 @media screen and (max-width: 576px) {
 
+  :root{
+    --big-font-size: 2.20rem
+  }
 }
 
 /* FOR SMALL DEVICE */
 @media screen and (max-width: 350px) {
-  :root{
-    --big-font-size: 2.25rem
-  }
 
 }

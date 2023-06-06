@@ -2,7 +2,7 @@
   min-height: calc(100vh - var(--header-height));
   background-color: var(--bg-color);
   display: flex;
-  align-items: center;
+
 }
 
 .classes__container{
@@ -10,4 +10,140 @@
   flex-direction: column;
   align-items: center;
   justify-content: center;
+}
+
+.section__subtitle{
+  color: var(--main-color);
+  margin-bottom: var(--m-2);
+}
+
+.pricing__container{
+  display: flex;
+  min-height: 50vh;
+  width: 100%;
+  gap: 2rem;
+}
+
+.logo__left{
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.logo__left img{
+  max-width: 250px;
+}
+
+.logo__text{
+  text-align: center;
+  border: 5px solid var(--text-color);
+  background-color: var(--second-bg-color);
+  width: 100%;
+}
+
+.info__title{
+  color: var(--second-text-color);
+  font-weight: var(--font-semi-bold);
+  font-size: 3.5rem;
+}
+
+.info__subTitle{
+  font-size: 2rem;
+}
+
+.pricing__right{
+  border: 2px solid green;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+.pricing__right{
+  flex: 1;
+
+
+}
+
+/* BREAKPOINTS */
+/* FOR LARGE DEVICE */
+@media screen and (max-width: 992px) {
+
+}
+
+/* FOR MEDIUM DEVICE */
+@media screen and (max-width: 768px) {
+  .pricing__container{
+    flex-direction: column;
+    min-height: 100vh;
+  }
+}
+
+/* FOR TABLET DEVICE */
+@media screen and (max-width: 576px) {
+
+}
+
+/* FOR SMALL DEVICE */
+@media screen and (max-width: 350px) {
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* BREAKPOINTS */
+/* FOR LARGE DEVICE */
+@media screen and (max-width: 992px) {
+
+}
+
+/* FOR MEDIUM DEVICE */
+@media screen and (max-width: 768px) {
+
+}
+
+/* FOR TABLET DEVICE */
+@media screen and (max-width: 576px) {
+
+  
+}
+
+/* FOR SMALL DEVICE */
+@media screen and (max-width: 350px) {
+
+
 }
