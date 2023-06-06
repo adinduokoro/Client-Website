@@ -1,0 +1,13 @@
+.classes {
+  min-height: calc(100vh - var(--header-height));
+  background-color: var(--bg-color);
+  display: flex;
+  align-items: center;
+}
+
+.classes__container{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
