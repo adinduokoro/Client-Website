@@ -30,12 +30,15 @@ const Home = () => {
             <img src={popupImg} alt="" />
             <div className="popup__course">
               <h2 style={{ letterSpacing: "2px" }}>COURSE:</h2>
+              <br />
               <p>{services[index].text}</p>
             </div>
           </div>
           <div className="popup__right">
             <div className="popup__rightText">
               <h2 style={{ letterSpacing: "2px" }}>DESCRIPTION:</h2>
+              <br />
+
               <p>{services[index].description}</p>
             </div>
             <div className="popup__button">
