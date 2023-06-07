@@ -6,7 +6,7 @@ import logo from "../../assets/images/logo.png";
 
 const Hero = () => {
   return (
-    <section className="hero" id="home" style={{scrollMarginTop: "7.5em"}} >
+    <section className="hero" id="home" style={{scrollMarginTop: "8em"}} >
       <div className="hero__img" >
         <img src={heroPic} alt="hero__img" />
       </div>

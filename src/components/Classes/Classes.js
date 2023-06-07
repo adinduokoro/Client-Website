@@ -1,6 +1,7 @@
 import React from "react";
 import "./Classes.css";
 import logo from "../../assets/images/washington-logo.png";
+import { products } from "./data.js"
 
 const Classes = () => {
   return (
@@ -17,7 +18,17 @@ const Classes = () => {
             </div>
           </div>
           <div className="pricing__right">
-            {}
+            {products.map((product, index) => {
+              return(
+                <div className="product__card" key={index}>
+                  <p className="product__title">{product.title}</p>
+                  <div className="price__container">
+                    <hr className="price__line"/>
+                    <p className="product__price">{product.price}</p>
+                  </div>
+                </div>
+              )
+            })}
           </div>
         </div>
       </div>
