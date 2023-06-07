@@ -7,6 +7,9 @@ import "./Home.css";
 import { useSelector, useDispatch } from "react-redux";
 import { showPopup } from "../../features/popup/popupSlice";
 import Classes from "../../components/Classes/Classes";
+import Gallery from "../../components/Gallery/Gallery";
+import Location from "../../components/Location/Location";
+import Contact from "../../components/Contact/Contact";
 
 const Home = () => {
   const show = useSelector((store) => store.popup.show);
@@ -30,6 +33,9 @@ const Home = () => {
         <About />
         <Offer />
         <Classes />
+        <Gallery />
+        <Location />
+        <Contact />
       </>
     </div>
   );

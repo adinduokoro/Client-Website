@@ -1,0 +1,12 @@
+.contact{
+  min-height: calc(100vh - var(--header-height));
+  background-color: var(--second-bg-color);
+  display: flex;
+}
+
+.contact__container{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
