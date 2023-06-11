@@ -10,3 +10,57 @@
   align-items: center;
   justify-content: center;
 }
+
+.instagramFeed__container{
+  display: grid;
+  grid-template-columns: repeat(6, 135px);
+  grid-template-rows: repeat(auto, 150px);
+  gap: 1rem;
+}
+
+.postCard img{
+  height: 100%;
+  box-shadow: 0px 4px 3px rgba(0,0,0,0.4), 
+  0px 8px 13px rgba(0,0,0,0.1), 
+  0px 18px 23px rgba(0,0,0,0.1);
+}
+
+.load__more{
+  background: none;
+  margin-top: var(--m-2);
+  font-size: var(--h3-font-size);
+  color: var(--bg-color);
+  cursor: pointer;
+}
+
+/* BREAKPOINTS */
+/* FOR LARGE DEVICE */
+@media screen and (max-width: 992px) {
+  .instagramFeed__container{
+    grid-template-columns: repeat(6, 100px);
+  }
+
+}
+
+/* FOR MEDIUM DEVICE */
+@media screen and (max-width: 768px) {
+  .instagramFeed__container{
+    grid-template-columns: repeat(4, 100px);
+  }
+}
+
+/* FOR TABLET DEVICE */
+@media screen and (max-width: 619px) {
+  .instagramFeed__container{
+    grid-template-columns: repeat(3, 130px);
+  }
+}
+
+/* FOR SMALL DEVICE */
+@media screen and (max-width: 450px) {
+  .instagramFeed__container{
+    grid-template-columns: repeat(3, 90px);
+  }
+}
+
+

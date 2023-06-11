@@ -10,3 +10,49 @@
   align-items: center;
   justify-content: center;
 }
+.address__container{
+  display: flex;
+  gap: 3rem;
+  align-items: center;
+}
+
+.address__container img{
+  height: 350px;
+  width: 350px;
+}
+
+.location__address{
+  display: flex;
+  flex-direction: column;
+  gap: 3rem;
+  white-space: nowrap;
+
+}
+
+.location__address h2{
+  color: var(--main-color);
+}
+
+/* BREAKPOINTS */
+/* FOR LARGE DEVICE */
+@media screen and (max-width: 992px) {
+
+}
+
+/* FOR MEDIUM DEVICE */
+@media screen and (max-width: 768px) {
+  .address__container{
+    flex-direction: column;
+    text-align: center;
+  }
+
+}
+
+/* FOR TABLET DEVICE */
+@media screen and (max-width: 576px) {
+}
+
+/* FOR SMALL DEVICE */
+@media screen and (max-width: 350px) {
+
+}

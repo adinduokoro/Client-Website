@@ -2,12 +2,12 @@ import { initializeApp } from "firebase/app";
 import { getAuth } from "firebase/auth";
 
 const firebaseConfig = {
-  apiKey: "AIzaSyC696xmrez4R-dgH7cPxX74dVYUEkDeeQs",
+  apiKey: process.env.REACT_APP_FIREBASE_APIKEY,
   authDomain: "wdf-training.firebaseapp.com",
   projectId: "wdf-training",
   storageBucket: "wdf-training.appspot.com",
-  messagingSenderId: "11650433920",
-  appId: "1:11650433920:web:c891c49496895c79c2b765"
+  messagingSenderId: process.env.REACT_APP_FIREBASE_MESSAGINGSENDERID,
+  appId: process.env.REACT_APP_FIREBASE_APPID
 };
 
 const app = initializeApp(firebaseConfig);

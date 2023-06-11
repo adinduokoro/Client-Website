@@ -9,7 +9,7 @@ import { store } from "./app/store";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
-  <React.StrictMode>
+  // <React.StrictMode>
     <Provider store={store}>
       <AuthContextProvider>
         <BrowserRouter>
@@ -17,5 +17,5 @@ root.render(
         </BrowserRouter>
       </AuthContextProvider>
     </Provider>
-  </React.StrictMode>
+  // </React.StrictMode>
 );
