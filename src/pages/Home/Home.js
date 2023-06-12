@@ -9,6 +9,7 @@ import Gallery from "../../components/Gallery/Gallery";
 import Location from "../../components/Location/Location";
 import Contact from "../../components/Contact/Contact";
 import Modal from "../../components/PopupWindow/Modal";
+import PopupImage from "../../components/PopupWindow/PopupImage";
 
 const Home = () => {
   return (
@@ -16,6 +17,7 @@ const Home = () => {
       <>
         <Modal />
         <PopupWindow />
+        <PopupImage />
       </>
       <>
         <Hero />

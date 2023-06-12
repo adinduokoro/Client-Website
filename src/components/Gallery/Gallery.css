@@ -16,11 +16,10 @@
   grid-template-columns: repeat(4, 1fr);
   grid-template-rows: repeat(auto, 200px);
   width: 100%;
-  gap: 1.5rem;
+  gap: 1rem;
 }
 
 .imageCard {
-  border: 2px solid green;
   height: 100%;
   width: 100%;
 }
@@ -28,6 +27,7 @@
 .imageCard img {
   object-fit: contain;
   height: 100%;
+  width: 100%;
 
 }
 
@@ -49,9 +49,17 @@
 }
 
 /* FOR TABLET DEVICE */
-@media screen and (max-width: 619px) {
+@media screen and (max-width: 576px) {
+  .image__container {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1rem;
+  }
 }
 
 /* FOR SMALL DEVICE */
 @media screen and (max-width: 450px) {
+  .image__container {
+    grid-template-columns: repeat(3, 1fr);
+    gap: .5rem;
+  }
 }

@@ -9,11 +9,14 @@ import {
   uploadBytes,
 } from "firebase/storage";
 import { v4 } from "uuid";
+import { setPopupImg , showPopupImg , showModal } from "../../features/popup/popupSlice";
+import { useDispatch } from "react-redux";
 
 const Gallery = () => {
   const [imageUpload, setImageUpload] = useState(null);
   const [imageList, setImageList] = useState([]);
   const [visible, setVisible] = useState(8)
+  const dispatch = useDispatch();
   const storage = getStorage();
 
   useEffect(() => {
@@ -67,6 +70,12 @@ const Gallery = () => {
       });
   };
 
+  const handleClick = (url) => {
+    dispatch(setPopupImg(url))
+    dispatch(showPopupImg(true))
+    dispatch(showModal(true))
+  };
+
   const handleLoadMore = () => {
     setVisible(visible + 4)
   }
@@ -79,7 +88,7 @@ const Gallery = () => {
         <ul className="image__container">
           {imageList.slice(0, visible).map((url, index) => {
             return (
-              <li className="imageCard" key={index} onClick={() => ("")}>
+              <li className="imageCard" key={index} onClick={() => handleClick(url)}>
                 <img src={url} alt="" />
               </li>
             );
