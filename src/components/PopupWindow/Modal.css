@@ -1,0 +1,13 @@
+.modal__overlay {
+  position: fixed;
+  width: 100%;
+  min-height: calc(100% - var(--header-height));
+  z-index: 100;
+  background-color: var(--main-color);
+  opacity: 0.25;
+  display: none;
+}
+
+.modal__overlay.show {
+  display: block;
+}
