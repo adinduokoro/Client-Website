@@ -5,25 +5,26 @@ import Offer from "../../components/Offer/Offer";
 import PopupWindow from "../../components/PopupWindow/PopupWindow";
 import "./Home.css";
 import { useSelector, useDispatch } from "react-redux";
-import { showPopup } from "../../features/popup/popupSlice";
+import { showModal, showPopup } from "../../features/popup/popupSlice";
 import Classes from "../../components/Classes/Classes";
 import Gallery from "../../components/Gallery/Gallery";
 import Location from "../../components/Location/Location";
 import Contact from "../../components/Contact/Contact";
 
 const Home = () => {
-  const show = useSelector((store) => store.popup.show);
+  const modal = useSelector((store) => store.popup.modal)
   const dispatch = useDispatch();
 
   const handleClick = () => {
-    dispatch(showPopup(false));
+    dispatch(showModal(false))
+    dispatch(showPopup(false))
   };
 
   return (
     <div className="home">
       <>
         <div
-          className={show ? "home__overlay show" : "home__overlay"}
+          className={modal ? "home__overlay show" : "home__overlay"}
           onClick={handleClick}
         ></div>
         <PopupWindow />

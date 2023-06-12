@@ -4,22 +4,16 @@ import { useSelector, useDispatch } from "react-redux";
 import popupImg from "../../assets/images/popup-bg.jpg";
 import { services } from "../../components/Offer/data";
 import { Icon } from "@iconify/react";
-import { showPopup } from "../../features/popup/popupSlice";
-
-
-
-
-
-
+import { showModal, showPopup } from "../../features/popup/popupSlice";
 
 const PopupWindow = () => {
   const show = useSelector((store) => store.popup.show);
   const index = useSelector((store) => store.popup.value);
   const dispatch = useDispatch();
 
-
   const handleClick = () => {
     dispatch(showPopup(false));
+    dispatch(showModal(false));
   };
 
   return (

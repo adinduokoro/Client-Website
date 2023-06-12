@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
-import { setPopupDesc, showPopup } from "../../features/popup/popupSlice";
+import { setPopupDesc, showModal, showPopup } from "../../features/popup/popupSlice";
 
 const Card = ({ service, index }) => {
   const dispatch = useDispatch();
@@ -8,6 +8,7 @@ const Card = ({ service, index }) => {
   const handleClick = (index) => {
     dispatch(setPopupDesc(index))
     dispatch(showPopup(true))
+    dispatch(showModal(true))
   };
 
   return (
