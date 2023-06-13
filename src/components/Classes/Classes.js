@@ -15,7 +15,7 @@ const Classes = () => {
   const [newCourse, setNewCourse] = useState("");
   const [newPrice, setNewPrice] = useState(0);
   const [products, setProducts] = useState([]);
-  const [editProductId, setEditProductId] = useState(null); // Track the product ID being edited
+  const [editProductId, setEditProductId] = useState(null);
   const productsCollectionRef = collection(db, "products");
 
   const createProduct = async (event) => {
@@ -26,10 +26,12 @@ const Classes = () => {
     }
 
     try {
-      await addDoc(productsCollectionRef, {
+      const docRef = await addDoc(productsCollectionRef, {
         course: newCourse.toUpperCase(),
         price: newPrice.toUpperCase(),
       });
+
+      setProducts([...products, { course: newCourse, price: newPrice, id: docRef.id }]);
 
       setNewCourse("");
       setNewPrice(0);
@@ -42,6 +44,7 @@ const Classes = () => {
     try {
       const productRef = doc(db, "products", productId);
       await deleteDoc(productRef);
+      setProducts(products.filter((product) => product.id !== productId));
     } catch (error) {
       console.error("Error deleting product:", error);
     }
@@ -54,7 +57,17 @@ const Classes = () => {
         course: newCourse.toUpperCase(),
         price: newPrice.toUpperCase(),
       };
+
       await updateDoc(productRef, updatedData);
+
+      setProducts(
+        products.map((product) =>
+          product.id === productId
+            ? { ...product, course: newCourse, price: newPrice }
+            : product
+        )
+      );
+
       setEditProductId(null);
       setNewCourse("");
       setNewPrice(0);
@@ -73,7 +86,7 @@ const Classes = () => {
       }
     };
     getProducts();
-  }, [products]);
+  }, []);
 
   const isEditMode = (productId) => {
     return productId === editProductId;
