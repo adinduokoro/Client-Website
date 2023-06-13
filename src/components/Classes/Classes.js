@@ -7,6 +7,7 @@ import {
   addDoc,
   deleteDoc,
   doc,
+  updateDoc,
 } from "firebase/firestore";
 import { db } from "../../firebase";
 
@@ -14,6 +15,7 @@ const Classes = () => {
   const [newCourse, setNewCourse] = useState("");
   const [newPrice, setNewPrice] = useState(0);
   const [products, setProducts] = useState([]);
+  const [editProductId, setEditProductId] = useState(null); // Track the product ID being edited
   const productsCollectionRef = collection(db, "products");
 
   const createProduct = async (event) => {
@@ -23,27 +25,66 @@ const Classes = () => {
       return;
     }
 
-    await addDoc(productsCollectionRef, {
-      course: newCourse.toUpperCase(),
-      price: newPrice.toUpperCase(),
-    });
+    try {
+      await addDoc(productsCollectionRef, {
+        course: newCourse.toUpperCase(),
+        price: newPrice.toUpperCase(),
+      });
 
-    setNewCourse("");
-    setNewPrice(0);
+      setNewCourse("");
+      setNewPrice(0);
+    } catch (error) {
+      console.error("Error creating product:", error);
+    }
   };
 
   const deleteProduct = async (productId) => {
-    const productRef = doc(db, "products", productId);
-    await deleteDoc(productRef);
+    try {
+      const productRef = doc(db, "products", productId);
+      await deleteDoc(productRef);
+    } catch (error) {
+      console.error("Error deleting product:", error);
+    }
+  };
+
+  const editProduct = async (productId) => {
+    try {
+      const productRef = doc(db, "products", productId);
+      const updatedData = {
+        course: newCourse.toUpperCase(),
+        price: newPrice.toUpperCase(),
+      };
+      await updateDoc(productRef, updatedData);
+      setEditProductId(null);
+      setNewCourse("");
+      setNewPrice(0);
+    } catch (error) {
+      console.error("Error editing product:", error);
+    }
   };
 
   useEffect(() => {
     const getProducts = async () => {
-      const data = await getDocs(productsCollectionRef);
-      setProducts(data.docs.map((doc) => ({ ...doc.data(), id: doc.id })));
+      try {
+        const data = await getDocs(productsCollectionRef);
+        setProducts(data.docs.map((doc) => ({ ...doc.data(), id: doc.id })));
+      } catch (error) {
+        console.error("Error getting products:", error);
+      }
     };
     getProducts();
   }, [products]);
+
+  const isEditMode = (productId) => {
+    return productId === editProductId;
+  };
+
+  const handleEditClick = (productId) => {
+    const product = products.find((product) => product.id === productId);
+    setEditProductId(productId);
+    setNewCourse(product.course);
+    setNewPrice(product.price);
+  };
 
   return (
     <section
@@ -58,11 +99,13 @@ const Classes = () => {
         <form action="">
           <input
             placeholder="Course Name?"
+            value={newCourse}
             onChange={(event) => setNewCourse(event.target.value)}
           />
           <input
             type="number"
             placeholder="Price?"
+            value={newPrice}
             onChange={(event) => setNewPrice(event.target.value)}
           />
           <button onClick={createProduct} disabled={products.length === 6}>
@@ -84,10 +127,21 @@ const Classes = () => {
               return (
                 <div className="product__card" key={index}>
                   <p className="product__title">{product.course}</p>
-                  <button onClick={() => deleteProduct(product.id)}>
+                  <button
+                    onClick={() =>
+                      isEditMode(product.id)
+                        ? editProduct(product.id)
+                        : handleEditClick(product.id)
+                    }
+                  >
+                    {isEditMode(product.id) ? "Save" : "Edit"}
+                  </button>
+                  <button
+                    style={{ marginLeft: "3px" }}
+                    onClick={() => deleteProduct(product.id)}
+                  >
                     Delete
                   </button>
-
                   <div className="price__container">
                     <hr className="price__line" />
                     <p className="product__price">${product.price}.00</p>
