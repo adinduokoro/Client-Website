@@ -1,9 +1,27 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import "./Classes.css";
 import logo from "../../assets/images/washington-logo.png";
-import { products } from "./data.js";
+import { collection, getDocs , addDoc } from "firebase/firestore";
+import { db } from "../../firebase";
 
 const Classes = () => {
+  const [newCourse, setNewCourse] = useState("")
+  const [newPrice, setNewPrice] = useState(0)
+  const [products, setProducts] = useState([])
+  const productsCollectionRef = collection(db, "products")
+
+  const createProduct = async () => {
+    await addDoc(productsCollectionRef, {course: newCourse, price: newPrice})
+  }
+
+  useEffect(() => {
+    const getProducts = async () => {
+      const data = await getDocs(productsCollectionRef);
+      setProducts(data.docs.map((doc) => ({...doc.data(), id: doc.id})))
+    }
+    getProducts()
+  },[products])
+
   return (
     <section
       className="classes"
@@ -13,6 +31,17 @@ const Classes = () => {
       <div className="classes__container container">
         <h2 className="section__title">Classes & Training</h2>
         <span className="section__subtitle">Course Pricing</span>
+
+
+
+        <form action="">
+          <input placeholder="Course Name?" onChange={(event) => setNewCourse(event.target.value)}/>
+          <input type="number" placeholder="Price?" onChange={(event) => setNewPrice(event.target.value)}/>
+          <button onClick={createProduct} disabled={products.length == 6}>Create Product</button>
+        </form>
+
+
+
         <div className="pricing__container">
           <div className="logo__left">
             <img src={logo} alt="" />
@@ -21,19 +50,25 @@ const Classes = () => {
               <p className="info__subTitle">TRAINING COURSE</p>
             </div>
           </div>
+
+
+
           <div className="pricing__right">
             {products.map((product, index) => {
               return (
                 <div className="product__card" key={index}>
-                  <p className="product__title">{product.title}</p>
+                  <p className="product__title">{product.course}</p>
                   <div className="price__container">
                     <hr className="price__line" />
-                    <p className="product__price">{product.price}</p>
+                    <p className="product__price">${product.price}.00</p>
                   </div>
                 </div>
               );
             })}
           </div>
+
+
+
         </div>
         <p className="disclaimer">
           Fingerprints are required to be done prior to class <br />

@@ -27,6 +27,7 @@ const Gallery = () => {
           getDownloadURL(item)
             .then((url) => {
               setImageList((prev) => [...prev, url]);
+              console.log(imageList.length)
             })
             .catch((error) => {
               console.log(error);
@@ -94,12 +95,18 @@ const Gallery = () => {
             );
           })}
         </ul>
-        {visible >=  imageList.length ? ""  : <button className="load__more" onClick={handleLoadMore} disabled={visible === 24}>load more...</button> }
-        {/* <input
+        {visible >=  imageList.length ? ""  : <button className="load__more" onClick={handleLoadMore} disabled={visible >= 24}>load more...</button> }
+        
+        
+        
+        <input
           type="file"
           onChange={(event) => setImageUpload(event.target.files[0])}
         />
-        <button onClick={uploadImage}>upload</button> */}
+        <button onClick={uploadImage} disabled={imageList.length >= 20}>upload</button>
+
+
+
       </div>
     </section>
   );

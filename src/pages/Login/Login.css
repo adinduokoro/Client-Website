@@ -1,0 +1,17 @@
+.login{
+  min-height: calc(100vh - var(--header-height));
+  margin-top: var(--header-height);
+  width: 100%;
+  background-color: var(--second-bg-color);
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.login__container {
+  position: relative;
+  min-height: 65vh;
+  display: flex;
+  justify-content: center;
+}
