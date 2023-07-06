@@ -10,3 +10,80 @@
   align-items: center;
   justify-content: center;
 }
+
+.contactInfo__container{
+  border: 5px solid pink;
+  display: flex;
+  gap: 25px;
+
+}
+
+.contact__left{
+  flex: 1;
+}
+
+.contact__left form{
+  display: flex;
+  flex-direction: column;
+}
+
+.contact__right{
+  flex: 1;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.info__address{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.info__phone{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.socialMedia{
+  border: 2px solid green;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.5rem;
+  align-items: center;
+  justify-content: center;
+}
+
+.socialMedia a{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.socialMedia__links{
+  display: flex;
+height: 60px;
+width: 60px;
+  align-items: center;
+  justify-content: center;
+  padding: 1rem;
+  background-color: var(--bg-color);
+  border-radius: 0.5rem;
+  transition-property: all;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  transition-duration: 0.15s;
+}
+
+.socialMedia__links .icon{
+  scale: 1.5;
+}
+
+.socialMedia__links:hover{
+  background-color: var(--main-color);
+  color: #eee !important;
+  transform: scaleX(1.1) scaleY(1.1);
+}
+

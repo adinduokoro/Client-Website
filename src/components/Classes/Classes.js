@@ -31,7 +31,7 @@ const Classes = () => {
         price: newPrice.toUpperCase(),
       });
 
-      setProducts([...products, { course: newCourse, price: newPrice, id: docRef.id }]);
+      setProducts([...products, { course: newCourse.toUpperCase(), price: newPrice.toUpperCase(), id: docRef.id }]);
 
       setNewCourse("");
       setNewPrice(0);
@@ -63,7 +63,7 @@ const Classes = () => {
       setProducts(
         products.map((product) =>
           product.id === productId
-            ? { ...product, course: newCourse, price: newPrice }
+            ? { ...product, course: newCourse.toUpperCase(), price: newPrice.toUpperCase() }
             : product
         )
       );

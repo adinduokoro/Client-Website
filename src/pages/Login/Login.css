@@ -10,8 +10,59 @@
 }
 
 .login__container {
-  position: relative;
-  min-height: 65vh;
+  height: 30rem;
+  width: 40rem;
+  background-color: var(--bg-color);
+  border-radius: 1rem;
   display: flex;
+  overflow: hidden;
+}
+
+.left{
+  flex: 1;
+  display: flex;
+  align-items: center;
   justify-content: center;
+}
+
+.left img{
+  width: 10rem;
+  height: 10rem;
+
+}
+
+.right{
+  flex: 1;
+  border: 5px solid pink;
+}
+
+
+
+
+
+
+
+
+
+
+
+/* BREAKPOINTS */
+/* FOR LARGE DEVICE */
+@media screen and (max-width: 992px) {
+
+}
+
+/* FOR MEDIUM DEVICE */
+@media screen and (max-width: 768px) {
+
+}
+
+/* FOR TABLET DEVICE */
+@media screen and (max-width: 576px) {
+
+}
+
+/* FOR SMALL DEVICE */
+@media screen and (max-width: 350px) {
+
 }
