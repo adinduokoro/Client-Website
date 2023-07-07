@@ -12,7 +12,7 @@ const Login = () => {
           <img src={logo} alt="" />
         </div>
         <div className="right">
-          Welcome back Admin
+          <h2 className="login__title">Welcome back Admin</h2>
           <form onSubmit={""}>
               <input
                 type="text"
