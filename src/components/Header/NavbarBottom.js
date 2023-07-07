@@ -1,11 +1,14 @@
 import React from "react";
 import logo from "../../assets/images/logo.png";
+import { UserAuth } from "../../context/AuthContext";
 import { navs } from "./data";
 import { Icon } from "@iconify/react";
 import { useSelector, useDispatch } from "react-redux";
 import { toggleSwitch, closeMenu } from "../../features/toggle/toggleSlice";
 
 const NavbarBottom = () => {
+  const { logout , user } = UserAuth();
+
   const toggle = useSelector((store) => store.plug.value);
   const dispatch = useDispatch();
 
@@ -43,7 +46,7 @@ const NavbarBottom = () => {
         </ul>
 
         {/* Book Now Button */}
-        <a href="" className="navbarBottom__button button">
+        <a href="#" className="navbarBottom__button button">
           Book Now
         </a>
       </div>

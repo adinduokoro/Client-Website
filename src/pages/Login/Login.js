@@ -63,10 +63,12 @@ const Login = () => {
               required
             />
 
-            <button>Sign In</button>
+            {/* <button>Sign In</button> */}
+            <button onClick={handleLogout}>
+              {user ? "Logout" : "Sign In"}
+            </button>
+            {user ? "logged in" : ""}
           </form>
-          <button onClick={handleLogout}>Logout</button>
-          {user ? "logged in" : "logged out"}
         </div>
       </div>
     </section>
