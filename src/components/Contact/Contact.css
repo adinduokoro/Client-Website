@@ -1,34 +1,108 @@
-.contact{
+.contact {
   min-height: calc(100vh - var(--header-height));
   background-color: var(--second-bg-color);
   display: flex;
 }
 
-.contact__container{
+.contact__container {
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
 }
 
-.contactInfo__container{
-  border: 5px solid pink;
+.contactInfo__container {
   display: flex;
-  gap: 25px;
-
+  justify-content: space-around;
 }
 
-.contact__left{
-  flex: 1;
+.contact__left {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 50%;
 }
 
-.contact__left form{
+.contact__left form {
   display: flex;
   flex-direction: column;
+  align-items: center;
+  width: 100%;
 }
 
-.contact__right{
-  flex: 1;
+.contact__left textarea, 
+.contact__left input {
+  font-family: var(--body-font);
+  height: 50px;
+  border-radius: 14px;
+  padding: 10px;
+  margin-bottom: 10px;
+  background: var(--bg-color);
+  border: 3px solid var(--main-color);
+  outline: none;
+  color: var(--main-color);
+  width: 100%;
+  letter-spacing: 1px;
+  
+  
+}
+
+.contact__left textarea {
+  height: 160px;
+  resize: none;;
+  margin-bottom: 10px;
+}
+
+.contact__left input::placeholder,
+.contact__left textarea::placeholder {
+  font-family: var(--body-font);
+  
+}
+
+.contact__left .send__alert {
+  color: #ebebeb;
+  padding-bottom: 15px;
+}
+
+.contact__left .send-button {
+  height: 50px;
+  width: 150px;
+  overflow: hidden;
+  transition: all 0.2s ease-in-out;
+  background-color: var(--bg-color);
+  border: none;
+  border-radius: 13px;
+  box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px,
+  rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px,
+  rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
+}
+
+.contact__left .alt-send-button {
+  width: 150px;
+  height: 100px;
+  transition: all 0.2s ease-in-out;
+}
+
+.contact__left .alt-send-button:hover {
+  transform: translate3d(0px, -50px, 0px);
+}
+
+.contact__left .alt-send-button .send-icon {
+  margin-top: 13px;
+  font-size: 1.5rem;
+  color: var(--text-color);
+}
+
+.contact__left .send-text {
+  display: block;
+  padding: 23px 0 25px 0;
+  font: 800 12px "Lato", sans-serif;
+  letter-spacing: 1px;
+  color: var(--main-color);
+}
+
+.contact__right {
+  width: 50%;
   text-align: center;
   display: flex;
   flex-direction: column;
@@ -36,37 +110,50 @@
   justify-content: center;
 }
 
-.info__address{
+.info p {
+  margin-left: 10px;
+}
+
+.contact__right hr {
+  width: 50%;
+  border: 2.5px solid var(--main-color);
+  box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px,
+    rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px,
+    rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
+
+  margin: 1rem 0;
+}
+
+.info__address {
   display: flex;
   justify-content: center;
   align-items: center;
 }
 
-.info__phone{
+.info__phone {
   display: flex;
   justify-content: center;
   align-items: center;
 }
 
-.socialMedia{
-  border: 2px solid green;
+.socialMedia {
+  margin: 1rem;
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  gap: 1.5rem;
+  gap: 0.5rem;
   align-items: center;
   justify-content: center;
 }
 
-.socialMedia a{
+.socialMedia a {
   display: flex;
   flex-direction: column;
   align-items: center;
 }
 
-.socialMedia__links{
+.socialMedia__links {
   display: flex;
-height: 60px;
-width: 60px;
+
   align-items: center;
   justify-content: center;
   padding: 1rem;
@@ -77,13 +164,63 @@ width: 60px;
   transition-duration: 0.15s;
 }
 
-.socialMedia__links .icon{
+.socialMedia__links .icon {
   scale: 1.5;
 }
 
-.socialMedia__links:hover{
+.socialMedia__links:hover {
   background-color: var(--main-color);
   color: #eee !important;
   transform: scaleX(1.1) scaleY(1.1);
 }
 
+.contact__right img{
+  width: 100px;
+  margin-top: 10px;
+  border-radius: 1rem;
+  box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px,
+    rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px,
+    rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
+
+}
+
+/* BREAKPOINTS */
+/* FOR LARGE DEVICE */
+@media screen and (max-width: 992px) {
+
+}
+
+/* FOR MEDIUM DEVICE */
+@media screen and (max-width: 768px) {
+  .contactInfo__container {
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 6rem;
+  }
+
+  .info__address,
+  .info__phone {
+    scale: 2;
+    padding: 10px;
+    white-space: nowrap;
+  }
+
+  .contact__left {
+    width: 85%;
+  }
+
+  .contact__right hr {
+    width: 8rem;
+  }
+}
+
+/* FOR TABLET DEVICE */
+@media screen and (max-width: 576px) {
+
+}
+
+/* FOR SMALL DEVICE */
+@media screen and (max-width: 350px) {
+
+}

@@ -1,9 +1,43 @@
-import React from "react";
+import React, { useState, useRef } from "react";
 import { Icon } from "@iconify/react";
 import "./Contact.css";
 import { socials } from "./data";
+import emailjs from "@emailjs/browser";
+import logo from "../../assets/images/logo.png";
+
 
 const Contact = () => {
+  const [sent, setSent] = useState(true);
+
+  const form = useRef();
+
+  function sendEmail(e) {
+    e.preventDefault();
+
+    emailjs
+      .sendForm(
+        process.env.REACT_APP_SERVICE_ID,
+        process.env.REACT_APP_TEMPLATE_ID,
+        form.current,
+        process.env.REACT_APP_PUBLIC_KEY
+      )
+      .then(
+        (result) => {
+          console.log(result.text);
+        },
+        (error) => {
+          // console.log(error.text);
+        }
+      );
+
+    e.target.reset();
+    setSent(true);
+
+    setTimeout(() => {
+      setSent(false);
+    }, 3000);
+  }
+
   return (
     <section
       className="contact"
@@ -15,25 +49,50 @@ const Contact = () => {
         <span className="section__subtitle">Send Us a Message</span>
         <div className="contactInfo__container container">
           <div className="contact__left">
-            <form onSubmit={""}>
-              <input type="text" className="input__field" placeholder="Name" />
+            <form ref={form} onSubmit={sendEmail}>
+              <input
+                type="text"
+                className="input__field"
+                placeholder="Name"
+                name="name"
+                required
+              />
+
               <input
                 type="email"
                 className="input__field"
                 placeholder="Email Address"
+                name="email"
+                required
               />
+
               <input
                 type="number"
                 className="input__field"
                 placeholder="Phone Number"
+                name="number"
+                required
               />
+
               <textarea
                 type="text"
                 rows="4"
                 placeholder="Message"
                 name="message"
+                required
               ></textarea>
-              <button>Send</button>
+
+              <button
+                className="send-button"
+                id="submit"
+                type="submit"
+                value="SEND"
+              >
+                <div className="alt-send-button">
+                  <Icon className="send-icon" icon="fa:paper-plane" />
+                  <span className="send-text">SEND</span>
+                </div>
+              </button>
             </form>
           </div>
           <div className="contact__right">
@@ -54,7 +113,7 @@ const Contact = () => {
                 return (
                   <a href="#">
                     <li className="socialMedia__links" key={index}>
-                      <Icon icon={social.icon} className="icon"/>
+                      <Icon icon={social.icon} className="icon" />
                     </li>
                     <span>{social.name}</span>
                   </a>
@@ -62,6 +121,7 @@ const Contact = () => {
               })}
             </ul>
             <hr />
+            <img src={logo} alt="" />
           </div>
         </div>
       </div>

@@ -9,13 +9,18 @@ import {
   uploadBytes,
 } from "firebase/storage";
 import { v4 } from "uuid";
-import { setPopupImg , showPopupImg , showModal } from "../../features/popup/popupSlice";
+import {
+  setPopupImg,
+  showPopupImg,
+  showModal,
+} from "../../features/popup/popupSlice";
 import { useDispatch } from "react-redux";
+import { Icon } from "@iconify/react";
 
 const Gallery = () => {
   const [imageUpload, setImageUpload] = useState(null);
   const [imageList, setImageList] = useState([]);
-  const [visible, setVisible] = useState(8)
+  const [visible, setVisible] = useState(8);
   const dispatch = useDispatch();
   const storage = getStorage();
 
@@ -27,7 +32,7 @@ const Gallery = () => {
           getDownloadURL(item)
             .then((url) => {
               setImageList((prev) => [...prev, url]);
-              console.log(imageList.length)
+              console.log(imageList.length);
             })
             .catch((error) => {
               console.log(error);
@@ -47,7 +52,7 @@ const Gallery = () => {
         getDownloadURL(response.ref)
           .then((url) => {
             setImageList((prev) => [...prev, url]);
-            setImageUpload(null)
+            setImageUpload(null);
           })
           .catch((error) => {
             console.log(error);
@@ -72,14 +77,14 @@ const Gallery = () => {
   };
 
   const handleClick = (url) => {
-    dispatch(setPopupImg(url))
-    dispatch(showPopupImg(true))
-    dispatch(showModal(true))
+    dispatch(setPopupImg(url));
+    dispatch(showPopupImg(true));
+    dispatch(showModal(true));
   };
 
   const handleLoadMore = () => {
-    setVisible(visible + 4)
-  }
+    setVisible(visible + 4);
+  };
 
   return (
     <section className="gallery">
@@ -89,24 +94,40 @@ const Gallery = () => {
         <ul className="image__container">
           {imageList.slice(0, visible).map((url, index) => {
             return (
-              <li className="imageCard" key={index} onClick={() => handleClick(url)}>
+              <li
+                className="imageCard"
+                key={index}
+                onClick={
+                  true ? () => handleClick(url) : () => handleDelete(url)
+                }
+              >
                 <img src={url} alt="" />
+                {/* <div className="delete__img">
+                  <Icon className="trash-icon" icon="mdi:delete-off" />
+                </div> */}
               </li>
             );
           })}
         </ul>
-        {visible >=  imageList.length ? ""  : <button className="load__more" onClick={handleLoadMore} disabled={visible >= 24}>load more...</button> }
-        
-        
-        
+        {visible >= imageList.length ? (
+          ""
+        ) : (
+          <button
+            className="load__more"
+            onClick={handleLoadMore}
+            disabled={visible >= 24}
+          >
+            load more...
+          </button>
+        )}
+
         <input
           type="file"
           onChange={(event) => setImageUpload(event.target.files[0])}
         />
-        <button onClick={uploadImage} disabled={imageList.length >= 20}>upload</button>
-
-
-
+        <button onClick={uploadImage} disabled={imageList.length >= 20}>
+          upload
+        </button>
       </div>
     </section>
   );

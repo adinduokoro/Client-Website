@@ -10,6 +10,7 @@ import Location from "../../components/Location/Location";
 import Contact from "../../components/Contact/Contact";
 import Modal from "../../components/PopupWindow/Modal";
 import PopupImage from "../../components/PopupWindow/PopupImage";
+import Footer from "../../components/Footer/Footer";
 
 const Home = () => {
   return (
@@ -27,6 +28,7 @@ const Home = () => {
         <Gallery />
         <Location />
         <Contact />
+        <Footer />
       </>
     </div>
   );
