@@ -26,14 +26,43 @@
 }
 
 .left img{
-  width: 10rem;
-  height: 10rem;
+  width: 15rem;
+  height: 15rem;
 
 }
 
 .right{
   flex: 1;
   border: 5px solid pink;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 0 1rem;
+}
+
+.right form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+}
+
+.right textarea, 
+.right input {
+  font-family: var(--body-font);
+  height: 50px;
+  border-radius: 14px;
+  padding: 10px;
+  margin-bottom: 10px;
+  background: var(--bg-color);
+  border: 3px solid var(--main-color);
+  outline: none;
+  color: var(--main-color);
+  width: 100%;
+  letter-spacing: 1px;
+  
+  
 }
 
 

@@ -13,13 +13,32 @@ const Login = () => {
         </div>
         <div className="right">
           Welcome back Admin
-          <br></br>
-          Email Login
-          <br></br>
-          Password
-          <br></br>
-          Sign in button
-          <br></br>
+          <form onSubmit={""}>
+              <input
+                type="text"
+                className="input__field"
+                placeholder="Name"
+                name="name"
+                required
+              />
+
+              <input
+                type="email"
+                className="input__field"
+                placeholder="Email Address"
+                name="email"
+                required
+              />
+
+              <button
+                className="send-button"
+                id="submit"
+                type="submit"
+                value="SEND"
+              >
+              Send
+              </button>
+            </form>
           return to homepage
         </div>
       </div>
