@@ -1,9 +1,40 @@
 import React, { useState } from "react";
+import { UserAuth } from "../../context/AuthContext";
 import "./Login.css";
-import logo from "../../assets/images/logo.png"
+import logo from "../../assets/images/logo.png";
 
 const Login = () => {
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const [error, setError] = useState("");
 
+  const { signIn, logout, user } = UserAuth();
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    setError("");
+    try {
+      await signIn(email, password);
+      fieldReset();
+    } catch (e) {
+      setError(e.message);
+      console.log(e.message);
+    }
+  };
+
+  const handleLogout = async () => {
+    try {
+      await logout();
+    } catch (e) {
+      console.log(e.message);
+    }
+    console.log("You are logged out");
+  };
+
+  const fieldReset = () => {
+    setEmail("");
+    setPassword("");
+  };
 
   return (
     <section className="login">
@@ -13,33 +44,29 @@ const Login = () => {
         </div>
         <div className="right">
           <h2 className="login__title">Welcome back Admin</h2>
-          <form onSubmit={""}>
-              <input
-                type="text"
-                className="input__field"
-                placeholder="Name"
-                name="name"
-                required
-              />
+          <form onSubmit={handleSubmit}>
+            <input
+              type="email"
+              className="input__field"
+              placeholder="Username"
+              onChange={(e) => setEmail(e.target.value)}
+              value={email}
+              required
+            />
 
-              <input
-                type="email"
-                className="input__field"
-                placeholder="Email Address"
-                name="email"
-                required
-              />
+            <input
+              type="password"
+              className="input__field"
+              placeholder="Password"
+              onChange={(e) => setPassword(e.target.value)}
+              value={password}
+              required
+            />
 
-              <button
-                className="send-button"
-                id="submit"
-                type="submit"
-                value="SEND"
-              >
-              Send
-              </button>
-            </form>
-          return to homepage
+            <button>Sign In</button>
+          </form>
+          <button onClick={handleLogout}>Logout</button>
+          {user ? "logged in" : "logged out"}
         </div>
       </div>
     </section>
