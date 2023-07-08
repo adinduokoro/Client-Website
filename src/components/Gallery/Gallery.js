@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import { UserAuth } from "../../context/AuthContext";
 import "./Gallery.css";
 import {
   getStorage,
@@ -18,6 +19,8 @@ import { useDispatch } from "react-redux";
 import { Icon } from "@iconify/react";
 
 const Gallery = () => {
+  const { logout, user } = UserAuth();
+
   const [imageUpload, setImageUpload] = useState(null);
   const [imageList, setImageList] = useState([]);
   const [visible, setVisible] = useState(8);
@@ -98,13 +101,17 @@ const Gallery = () => {
                 className="imageCard"
                 key={index}
                 onClick={
-                  true ? () => handleClick(url) : () => handleDelete(url)
+                  user ? () => handleDelete(url) : () => handleClick(url)
                 }
               >
                 <img src={url} alt="" />
-                {/* <div className="delete__img">
-                  <Icon className="trash-icon" icon="mdi:delete-off" />
-                </div> */}
+                {user ? (
+                  <>
+                    <div className="delete__img">
+                      <Icon className="trash-icon" icon="mdi:delete-off" />
+                    </div>
+                  </>
+                ) : null}
               </li>
             );
           })}
@@ -120,14 +127,22 @@ const Gallery = () => {
             load more...
           </button>
         )}
-
-        <input
-          type="file"
-          onChange={(event) => setImageUpload(event.target.files[0])}
-        />
-        <button onClick={uploadImage} disabled={imageList.length >= 20}>
-          upload
-        </button>
+        {user ? (
+          <>
+            <input
+              className="option__button button-admin"
+              type="file"
+              onChange={(event) => setImageUpload(event.target.files[0])}
+            />
+            <button
+              className="option__button button-admin"
+              onClick={uploadImage}
+              disabled={imageList.length >= 20}
+            >
+              upload
+            </button>
+          </>
+        ) : null}
       </div>
     </section>
   );

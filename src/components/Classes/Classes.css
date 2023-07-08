@@ -62,6 +62,10 @@
   font-size: 1rem;
 }
 
+.option__button{
+  padding: 1px 3px;
+}
+
 .price__container{
   display: flex;
   margin-bottom: 1rem;

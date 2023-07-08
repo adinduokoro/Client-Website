@@ -17,6 +17,7 @@
   grid-template-rows: repeat(auto, 200px);
   width: 100%;
   gap: 1rem;
+  margin-bottom: 1rem;
 }
 
 .imageCard {

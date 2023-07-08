@@ -1,5 +1,7 @@
 import React, { useState, useEffect } from "react";
 import "./Classes.css";
+import { UserAuth } from "../../context/AuthContext";
+
 import logo from "../../assets/images/washington-logo.png";
 import {
   collection,
@@ -12,6 +14,8 @@ import {
 import { db } from "../../firebase";
 
 const Classes = () => {
+  const { logout, user } = UserAuth();
+
   const [newCourse, setNewCourse] = useState("");
   const [newPrice, setNewPrice] = useState(0);
   const [products, setProducts] = useState([]);
@@ -31,7 +35,14 @@ const Classes = () => {
         price: newPrice.toUpperCase(),
       });
 
-      setProducts([...products, { course: newCourse.toUpperCase(), price: newPrice.toUpperCase(), id: docRef.id }]);
+      setProducts([
+        ...products,
+        {
+          course: newCourse.toUpperCase(),
+          price: newPrice.toUpperCase(),
+          id: docRef.id,
+        },
+      ]);
 
       setNewCourse("");
       setNewPrice(0);
@@ -63,7 +74,11 @@ const Classes = () => {
       setProducts(
         products.map((product) =>
           product.id === productId
-            ? { ...product, course: newCourse.toUpperCase(), price: newPrice.toUpperCase() }
+            ? {
+                ...product,
+                course: newCourse.toUpperCase(),
+                price: newPrice.toUpperCase(),
+              }
             : product
         )
       );
@@ -110,20 +125,24 @@ const Classes = () => {
         <span className="section__subtitle">Course Pricing</span>
 
         <form action="">
-          <input
-            placeholder="Course Name?"
-            value={newCourse}
-            onChange={(event) => setNewCourse(event.target.value)}
-          />
-          <input
-            type="number"
-            placeholder="Price?"
-            value={newPrice}
-            onChange={(event) => setNewPrice(event.target.value)}
-          />
-          <button onClick={createProduct} disabled={products.length === 6}>
-            Create Product
-          </button>
+          {user ? (
+            <>
+              <input className="option__button button-admin"
+                placeholder="Course Name?"
+                value={newCourse}
+                onChange={(event) => setNewCourse(event.target.value)}
+              />
+              <input className="option__button button-admin"
+                type="number"
+                placeholder="Price?"
+                value={newPrice}
+                onChange={(event) => setNewPrice(event.target.value)}
+              />
+              <button className="option__button button-admin" onClick={createProduct} disabled={products.length === 6}>
+                Create Product
+              </button>
+            </>
+          ) : null}
         </form>
 
         <div className="pricing__container">
@@ -140,21 +159,28 @@ const Classes = () => {
               return (
                 <div className="product__card" key={index}>
                   <p className="product__title">{product.course}</p>
-                  <button
-                    onClick={() =>
-                      isEditMode(product.id)
-                        ? editProduct(product.id)
-                        : handleEditClick(product.id)
-                    }
-                  >
-                    {isEditMode(product.id) ? "Save" : "Edit"}
-                  </button>
-                  <button
-                    style={{ marginLeft: "3px" }}
-                    onClick={() => deleteProduct(product.id)}
-                  >
-                    Delete
-                  </button>
+                  {user ? (
+                    <>
+                      <button
+                        className="option__button button-admin"
+                        onClick={() =>
+                          isEditMode(product.id)
+                            ? editProduct(product.id)
+                            : handleEditClick(product.id)
+                        }
+                      >
+                        {isEditMode(product.id) ? "Save" : "Edit"}
+                      </button>
+                      <button
+                        className="option__button button-admin"
+                        style={{ marginLeft: "3px" }}
+                        onClick={() => deleteProduct(product.id)}
+                      >
+                        Delete
+                      </button>
+                    </>
+                  ) : null}
+
                   <div className="price__container">
                     <hr className="price__line" />
                     <p className="product__price">${product.price}.00</p>

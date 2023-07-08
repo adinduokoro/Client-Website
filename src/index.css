@@ -95,6 +95,7 @@ button {
   border: none;
 }
 
+
 img {
   height: auto;
   max-width: 100%;
@@ -131,6 +132,12 @@ section{
   border-radius: 3rem;
   font-size: var(--h3-font-size);
   font-weight: var(--font-semi-bold);
+}
+
+.button-admin{
+  border: 2px solid red;
+  border-radius: 0rem;
+
 }
 
 /* BREAKPOINTS */

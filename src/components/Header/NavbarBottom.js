@@ -7,7 +7,7 @@ import { useSelector, useDispatch } from "react-redux";
 import { toggleSwitch, closeMenu } from "../../features/toggle/toggleSlice";
 
 const NavbarBottom = () => {
-  const { logout , user } = UserAuth();
+  const { logout, user } = UserAuth();
 
   const toggle = useSelector((store) => store.plug.value);
   const dispatch = useDispatch();
@@ -15,9 +15,18 @@ const NavbarBottom = () => {
   const handleClick = () => {
     dispatch(toggleSwitch());
   };
-  
+
   const handleMenuClose = () => {
     dispatch(closeMenu());
+  };
+
+  const handleLogout = async () => {
+    try {
+      await logout();
+    } catch (e) {
+      console.log(e.message);
+    }
+    console.log("You are logged out");
   };
 
   return (
@@ -46,8 +55,10 @@ const NavbarBottom = () => {
         </ul>
 
         {/* Book Now Button */}
-        <a href="#" className="navbarBottom__button button">
-          Book Now
+        <a href={user ? null : "https://squareup.com/appointments/book/yha7kyt9bges4o/LD5ANTB6PMASK/services"} target={user ? null : "_blank"}>
+          <button className={user ? "navbarBottom__button button button-admin" : "navbarBottom__button button"} onClick={user ? () => handleLogout() : null }>
+            {user ? "Logout" : "Book Now"}
+          </button>
         </a>
       </div>
 
