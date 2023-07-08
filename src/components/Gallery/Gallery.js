@@ -141,6 +141,7 @@ const Gallery = () => {
             >
               upload
             </button>
+            <p className="logout__text">When logged in you can upload up to 24 pictures.</p>
           </>
         ) : null}
       </div>

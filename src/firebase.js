@@ -4,7 +4,7 @@ import { getFirestore } from "firebase/firestore"
 
 const firebaseConfig = {
   apiKey: process.env.REACT_APP_FIREBASE_APIKEY,
-  authDomain: "wdf-training.firebaseapp.com",
+  authDomain: process.env.REACT_APP_FIREBASE_AUTHDOMAIN,
   projectId: "wdf-training",
   storageBucket: "wdf-training.appspot.com",
   messagingSenderId: process.env.REACT_APP_FIREBASE_MESSAGINGSENDERID,

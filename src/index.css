@@ -137,6 +137,7 @@ section{
 .button-admin{
   border: 5px solid red;
   border-radius: 0rem;
+  cursor: pointer;
 
 }
 

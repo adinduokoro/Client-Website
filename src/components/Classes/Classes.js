@@ -123,7 +123,7 @@ const Classes = () => {
       <div className="classes__container container">
         <h2 className="section__title">Classes & Training</h2>
         <span className="section__subtitle">Course Pricing</span>
-
+        {user ? <p className="admin__text">You can create, edit, and/or delete up 6 products below</p> : null}
         <form action="">
           {user ? (
             <>

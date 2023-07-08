@@ -45,6 +45,12 @@
   display: flex;
 }
 
+.navbarBottom__logo .logout__text{
+  margin-left: 1rem;
+  margin-top: 2.5rem;
+  color: red;
+}
+
 .navbarBottom__navMenu {
   display: flex;
   align-items: center;

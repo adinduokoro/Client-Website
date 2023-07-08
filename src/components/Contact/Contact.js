@@ -111,7 +111,7 @@ const Contact = () => {
             <ul className="socialMedia">
               {socials.map((social, index) => {
                 return (
-                  <a href="#" key={index}>
+                  <a href={social.link} target="_blank" key={index}>
                     <li className="socialMedia__links" >
                       <Icon icon={social.icon} className="icon" />
                     </li>

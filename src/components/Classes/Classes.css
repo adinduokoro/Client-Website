@@ -17,6 +17,10 @@
   margin-bottom: var(--m-2);
 }
 
+.admin__text{
+  margin-bottom: 5px;
+}
+
 .pricing__container{
   display: flex;
   width: 100%;

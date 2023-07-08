@@ -32,8 +32,9 @@ const NavbarBottom = () => {
   return (
     <nav className="navbarBottom">
       {/* Website Logo */}
-      <div className="navbarBottom__logo">
+      <div className={user ? "navbarBottom__logo button-admin" : "navbarBottom__logo "} onClick={user ? handleLogout : null}>
         <img src={logo} alt="logo" />
+        <p className="logout__text">{user ? "Logout" : ""}</p>
       </div>
 
       {/* Website Navigation Menu */}

@@ -69,7 +69,7 @@ const Login = () => {
             </button>
             {user ? "logged in" : ""}
           </form>
-          <Link to="/">Go to Homepage</Link>
+          <Link style={{ scale: "1.5" }} to="/">Go to Homepage</Link>
         </div>
       </div>
     </section>
