@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { UserAuth } from "../../context/AuthContext";
 import "./Login.css";
 import logo from "../../assets/images/logo.png";
+import { Link } from "react-router-dom";
 
 const Login = () => {
   const [email, setEmail] = useState("");
@@ -18,7 +19,7 @@ const Login = () => {
       fieldReset();
     } catch (e) {
       setError(e.message);
-      console.log(e.message);
+      console.log(error);
     }
   };
 
@@ -26,7 +27,8 @@ const Login = () => {
     try {
       await logout();
     } catch (e) {
-      console.log(e.message);
+      setError(e.message);
+      console.log(error);
     }
     console.log("You are logged out");
   };
@@ -62,13 +64,12 @@ const Login = () => {
               value={password}
               required
             />
-
-            {/* <button>Sign In</button> */}
-            <button onClick={handleLogout}>
+            <button className={user ? "option__button button-admin" : ""} onClick={handleLogout}>
               {user ? "Logout" : "Sign In"}
             </button>
             {user ? "logged in" : ""}
           </form>
+          <Link to="/">Go to Homepage</Link>
         </div>
       </div>
     </section>

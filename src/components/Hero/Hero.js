@@ -16,7 +16,7 @@ const Hero = () => {
         <h1 className="section__title">WASHINGTON'S DIRECT</h1>
         <h2>FIREARMS TRAINING</h2>
         <h3 className="section__subtitle">Qualified Instructors Teaching Safety and Defense Skills</h3>
-        <a href="" className="hero__button button">
+        <a href="https://squareup.com/appointments/book/yha7kyt9bges4o/LD5ANTB6PMASK/services" target="_blank" className="hero__button button">
           Book Now
         </a>
       </div>
