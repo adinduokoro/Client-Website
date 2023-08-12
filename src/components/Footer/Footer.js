@@ -9,7 +9,7 @@ const Footer = () => {
           <p>WDFTRAINING is able to accommodate all of our customers with limited spacing and availability, so we ask that you cancel and/or reschedule at least 72 hours before the scheduled class. While deposits are non-refundable, we do offer a one-time courtesy reschedule at no additional cost to you!</p>
         </div>
         <div className="footer__copyright">
-          <p>Copyright © 2023, Washington's Direct Firearms Training, LLC, created by Adindu Okoro</p>
+          <p>Copyright © 2023, Washington's Direct Firearm Training, LLC, website created by Adindu Okoro</p>
         </div>
       </div>
     </section>

@@ -26,7 +26,6 @@ const NavbarBottom = () => {
     } catch (e) {
       console.log(e.message);
     }
-    console.log("You are logged out");
   };
 
   return (

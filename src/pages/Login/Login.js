@@ -30,7 +30,6 @@ const Login = () => {
       setError(e.message);
       console.log(error);
     }
-    console.log("You are logged out");
   };
 
   const fieldReset = () => {

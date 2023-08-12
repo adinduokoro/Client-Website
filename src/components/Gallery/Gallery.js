@@ -35,7 +35,6 @@ const Gallery = () => {
           getDownloadURL(item)
             .then((url) => {
               setImageList((prev) => [...prev, url]);
-              console.log(imageList.length);
             })
             .catch((error) => {
               console.log(error);

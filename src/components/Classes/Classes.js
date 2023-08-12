@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import "./Classes.css";
 import { UserAuth } from "../../context/AuthContext";
-
+import { products } from "./data";
 import logo from "../../assets/images/washington-logo.png";
 import {
   collection,
@@ -18,7 +18,7 @@ const Classes = () => {
 
   const [newCourse, setNewCourse] = useState("");
   const [newPrice, setNewPrice] = useState(0);
-  const [products, setProducts] = useState([]);
+  // const [products, setProducts] = useState([]);
   const [editProductId, setEditProductId] = useState(null);
   const productsCollectionRef = collection(db, "products");
 
@@ -35,14 +35,14 @@ const Classes = () => {
         price: newPrice.toUpperCase(),
       });
 
-      setProducts([
-        ...products,
-        {
-          course: newCourse.toUpperCase(),
-          price: newPrice.toUpperCase(),
-          id: docRef.id,
-        },
-      ]);
+      // setProducts([
+      //   ...products,
+      //   {
+      //     course: newCourse.toUpperCase(),
+      //     price: newPrice.toUpperCase(),
+      //     id: docRef.id,
+      //   },
+      // ]);
 
       setNewCourse("");
       setNewPrice(0);
@@ -55,7 +55,7 @@ const Classes = () => {
     try {
       const productRef = doc(db, "products", productId);
       await deleteDoc(productRef);
-      setProducts(products.filter((product) => product.id !== productId));
+      // setProducts(products.filter((product) => product.id !== productId));
     } catch (error) {
       console.error("Error deleting product:", error);
     }
@@ -71,17 +71,17 @@ const Classes = () => {
 
       await updateDoc(productRef, updatedData);
 
-      setProducts(
-        products.map((product) =>
-          product.id === productId
-            ? {
-                ...product,
-                course: newCourse.toUpperCase(),
-                price: newPrice.toUpperCase(),
-              }
-            : product
-        )
-      );
+      // setProducts(
+      //   products.map((product) =>
+      //     product.id === productId
+      //       ? {
+      //           ...product,
+      //           course: newCourse.toUpperCase(),
+      //           price: newPrice.toUpperCase(),
+      //         }
+      //       : product
+      //   )
+      // );
 
       setEditProductId(null);
       setNewCourse("");
@@ -95,7 +95,7 @@ const Classes = () => {
     const getProducts = async () => {
       try {
         const data = await getDocs(productsCollectionRef);
-        setProducts(data.docs.map((doc) => ({ ...doc.data(), id: doc.id })));
+        // setProducts(data.docs.map((doc) => ({ ...doc.data(), id: doc.id })));
       } catch (error) {
         console.error("Error getting products:", error);
       }
@@ -120,10 +120,11 @@ const Classes = () => {
       id="classes"
       style={{ scrollMarginTop: "7.5rem" }}
     >
+
       <div className="classes__container container">
         <h2 className="section__title">Classes & Training</h2>
         <span className="section__subtitle">Course Pricing</span>
-        {user ? <p className="admin__text">You can create, edit, and/or delete up 6 products below</p> : null}
+        {/* {user ? <p className="admin__text">You can create, edit, and/or delete up 6 products below</p> : null}
         <form action="">
           {user ? (
             <>
@@ -143,7 +144,7 @@ const Classes = () => {
               </button>
             </>
           ) : null}
-        </form>
+        </form> */}
 
         <div className="pricing__container">
           <div className="logo__left">
@@ -156,6 +157,21 @@ const Classes = () => {
 
           <div className="pricing__right">
             {products.map((product, index) => {
+              return (
+                <div className="product__card" key={index}>
+                  <p className="product__title">{product.title}</p>
+                  <div className="price__container">
+                    <hr className="price__line" />
+                    <p className="product__price">{product.price}</p>
+                  </div>
+                </div>
+              );
+            })}
+            <>
+
+            </>
+
+            {/* {products.map((product, index) => {
               return (
                 <div className="product__card" key={index}>
                   <p className="product__title">{product.course}</p>
@@ -187,7 +203,7 @@ const Classes = () => {
                   </div>
                 </div>
               );
-            })}
+            })} */}
           </div>
         </div>
         <p className="disclaimer">
