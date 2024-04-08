@@ -1,7 +1,7 @@
 export const products = [
   {
     title: "WEAR & CARRY",
-    price: "$300.00",
+    price: "$250.00",
   },
   {
     title: "HANDGUN QUALIFICATION LICENSE (HQL)",
